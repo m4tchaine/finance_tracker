@@ -1,0 +1,222 @@
+:root {
+    /* Warna sesuai screenshot terbaru */
+    --bg-sidebar: #c9d9ea;
+    --bg-body: #ffffff;
+    --topbar: #82A5C6;
+    --card-bg: #DCE7F2;
+    --btn-primary: #5D81A4;
+    --pastel-green: #C1EAD1;
+    --pastel-red: #F4C7C8;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-body);
+    color: #333;
+}
+
+.wrapper {
+    display: flex;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    width: 240px;
+    background: var(--bg-sidebar);
+    height: 100vh;
+    position: fixed;
+    padding: 30px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid rgba(0,0,0,0.05);
+}
+
+.profile img {
+    width: 70px;
+    height: 70px;
+    background: white;
+    border-radius: 50%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.ubah-profil {
+    font-size: 12px;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.sidebar ul {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 12px 20px;
+    margin: 5px 0;
+    border-radius: 10px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.sidebar li.active {
+    background: #B8CDE1;
+}
+
+.sidebar li:hover:not(.active) {
+    background: rgba(184, 205, 225, 0.5);
+}
+
+/* ===== MAIN ===== */
+.main {
+    margin-left: 240px;
+    flex: 1;
+}
+
+/* ===== TOPBAR ===== */
+.topbar {
+    background: var(--topbar);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.topbar h1 {
+    margin: 0;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* ===== CONTENT ===== */
+.content {
+    padding: 30px 40px;
+}
+
+/* ===== CARDS (Proporsi 8:2:2) ===== */
+.cards {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.cards .saldo {
+    background: var(--card-bg);
+    flex: 8; /* Lebih lebar sesuai gambar */
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.cards .pemasukan {
+    background: var(--pastel-green);
+    flex: 2;
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cards .pengeluaran {
+    background: var(--pastel-red);
+    flex: 2;
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.label-card {
+    font-size: 13px;
+    font-weight: bold;
+    color: #555;
+}
+
+.nominal-card {
+    font-weight: 800;
+    font-size: 20px;
+}
+
+/* ===== FORM & TABLE BOX ===== */
+.box {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.box h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.form-box form {
+    display: flex;
+    gap: 12px;
+}
+
+.form-box input, .form-box select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: white;
+    font-size: 14px;
+}
+
+.form-box button {
+    background: var(--btn-primary);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ===== TABLE ===== */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px; /* Jarak antar baris */
+}
+
+th {
+    padding: 10px 15px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 2px solid #bdc9d5;
+}
+
+td {
+    padding: 15px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Baris warna penuh */
+tr.pemasukan td {
+    background: var(--pastel-green);
+}
+
+tr.pengeluaran td {
+    background: var(--pastel-red);
+}
+
+/* Membuat sudut melengkung pada baris tabel */
+tr td:first-child { border-radius: 10px 0 0 10px; }
+tr td:last-child { border-radius: 0 10px 10px 0; text-align: right; font-weight: bold; }
