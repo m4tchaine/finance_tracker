@@ -1,8 +1,5 @@
 :root {
-    --sidebar-width: 240px;
     --bg-sidebar: #c9d9ea;
-    --bg-card: #d9e3ee;
-    --primary: #7fa1c3;
 }
 
 body {
@@ -15,10 +12,10 @@ body {
 .topbar {
     position: fixed;
     top: 0;
-    left: var(--sidebar-width);
+    left: 220px;
     right: 0;
     height: 70px;
-    background: var(--primary);
+    background: #7fa1c3;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -30,7 +27,7 @@ body {
 
 /* ===== SIDEBAR ===== */
 .sidebar {
-    width: var(--sidebar-width);
+    width: 240px;
     background: var(--bg-sidebar);
     height: 100vh;
     position: fixed;
@@ -42,8 +39,8 @@ body {
 }
 
 .profile img {
-    width: 75px;
-    height: 75px;
+    width: 70px;
+    height: 70px;
     background: white;
     border-radius: 50%;
     padding: 5px;
@@ -51,9 +48,9 @@ body {
 }
 
 .ubah-profil {
-    font-size: 13px;
-    font-weight: 600;
-    color: #555;
+    font-size: 12px;
+    font-weight: bold;
+    color: #666;
     margin-bottom: 30px;
     cursor: pointer;
 }
@@ -65,13 +62,13 @@ body {
 }
 
 .sidebar li {
-    padding: 12px 18px;
-    margin: 6px 0;
+    padding: 12px 20px;
+    margin: 5px 0;
     border-radius: 10px;
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     cursor: pointer;
     transition: 0.2s;
 }
@@ -80,37 +77,31 @@ body {
     background: #B8CDE1;
 }
 
-.sidebar li:hover {
-    background: rgba(184, 205, 225, 0.6);
+.sidebar li:hover:not(.active) {
+    background: rgba(184, 205, 225, 0.5);
 }
 
 /* ===== CONTENT ===== */
 .content {
-    margin-left: var(--sidebar-width);
-    padding: 100px 40px 40px;
+    margin-left: 220px;
+    padding: 100px 40px 40px 40px; /* kasih space buat topbar */
 }
 
 /* ===== CARD RIWAYAT ===== */
 .card {
-    background: var(--bg-card);
-    padding: 18px 20px;
+    background: #d9e3ee;
+    padding: 15px;
     border-radius: 12px;
     margin-bottom: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: 0.2s;
-}
-
-.card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 .transaksi {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 
 .icon {
@@ -122,26 +113,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-}
-
-/* teks transaksi */
-.card p {
-    margin: 0;
-    font-size: 14px;
-}
-
-/* tanggal kanan */
-.card small {
-    color: #555;
-    font-weight: 500;
 }
 
 /* warna kiri */
 .masuk {
-    border-left: 5px solid #2ecc71;
+    border-left: 5px solid green;
 }
 
 .keluar {
-    border-left: 5px solid #e74c3c;
+    border-left: 5px solid red;
 }
