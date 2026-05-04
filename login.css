@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: #a9bfd3; /* biru seperti figma */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 /* Container tengah */
@@ -9,50 +15,63 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    width: 100%;
 }
 
 /* Card login */
 .login-card {
-    background: white;
-    padding: 40px 30px;
+    background: #ffffff;
+    padding: 50px 40px 40px;
     width: 320px;
-    border-radius: 10px;
+    border-radius: 20px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     position: relative;
+    transition: transform 0.3s ease;
+}
+
+.login-card:hover {
+    transform: translateY(-5px);
 }
 
 /* Logo bulat di atas */
 .logo {
-    width: 120px;
-    height: 120px;
-    background: white;
+    width: 100px;
+    height: 100px;
+    background: #ffffff;
     border-radius: 50%;
     position: absolute;
-    top: -40px;
+    top: -50px;
     left: 50%;
     transform: translateX(-50%);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .logo img {
-    width: 80px;
+    width: 65px;
+    object-fit: contain;
 }
 
 /* Title */
 h3 {
-    margin-top: 50px;
+    margin-top: 10px;
     color: #2c4c73;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 h2 {
     margin-top: 5px;
+    margin-bottom: 25px;
     color: #2c4c73;
-    font-size: 20px;
+    font-size: 24px;
+    font-weight: 700;
 }
 
 /* Label */
@@ -61,41 +80,68 @@ label {
     text-align: left;
     margin-top: 15px;
     font-size: 14px;
+    font-weight: 500;
+    color: #4a5568;
+    margin-bottom: 8px;
 }
 
 /* Input group */
 .input-group {
     display: flex;
     align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 5px;
-    margin-top: 5px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 4px 8px;
+    transition: all 0.3s ease;
+}
+
+.input-group:focus-within {
+    border-color: #5c7ea6;
+    box-shadow: 0 0 0 3px rgba(92, 126, 166, 0.15);
+    background: #ffffff;
 }
 
 .input-group span {
-    margin: 0 8px;
+    margin: 0 10px;
+    color: #718096;
+    font-size: 16px;
 }
 
 .input-group input {
     border: none;
     outline: none;
     width: 100%;
-    padding: 8px;
+    padding: 10px 5px;
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #2d3748;
 }
 
 /* Button */
 button {
-    margin-top: 20px;
+    margin-top: 30px;
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background-color: #5c7ea6;
     border: none;
     color: white;
-    border-radius: 6px;
+    border-radius: 10px;
     cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(92, 126, 166, 0.2);
 }
 
 button:hover {
     background-color: #4a6b91;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(92, 126, 166, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
 }

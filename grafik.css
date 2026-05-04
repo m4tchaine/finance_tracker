@@ -1,12 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 :root {
-    /* Warna sesuai screenshot terbaru */
     --bg-sidebar: #c9d9ea;
+    --bg-body: #f8fafc;
+    --topbar: #82A5C6;
+    --btn-primary: #5D81A4;
+    --text-main: #2d3748;
+    --text-muted: #718096;
 }
 
 body {
     margin: 0;
-    font-family: 'Segoe UI';
-    background: #f5f5f5;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-body);
+    color: var(--text-main);
 }
 
 .wrapper {
@@ -19,95 +26,144 @@ body {
     background: var(--bg-sidebar);
     height: 100vh;
     position: fixed;
-    padding: 30px 15px;
+    padding: 40px 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 2px 0 10px rgba(0,0,0,0.03);
+    z-index: 100;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.profile:hover {
+    transform: scale(1.05);
 }
 
 .profile img {
-    width: 70px;
-    height: 70px;
+    width: 75px;
+    height: 75px;
     background: white;
     border-radius: 50%;
-    padding: 5px;
-    margin-bottom: 10px;
+    padding: 4px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    object-fit: cover;
 }
 
 .ubah-profil {
-    font-size: 12px;
-    font-weight: bold;
-    color: #666;
-    margin-bottom: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #4a5568;
+    margin: 0 0 35px 0;
     cursor: pointer;
+    background: rgba(255,255,255,0.5);
+    padding: 4px 12px;
+    border-radius: 12px;
 }
 
 .sidebar ul {
     width: 100%;
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .sidebar li {
-    padding: 12px 20px;
-    margin: 5px 0;
-    border-radius: 10px;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 12px;
     font-weight: 600;
+    font-size: 15px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     cursor: pointer;
-    transition: 0.2s;
+    transition: all 0.3s ease;
+    color: #3a4a5b;
 }
 
 .sidebar li.active {
-    background: #B8CDE1;
+    background: #ffffff;
+    color: var(--btn-primary);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    transform: translateX(5px);
 }
 
 .sidebar li:hover:not(.active) {
-    background: rgba(184, 205, 225, 0.5);
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateX(3px);
 }
 
-/* Main */
+/* ===== MAIN ===== */
 .main {
+    margin-left: 270px;
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Topbar */
+/* ===== TOPBAR ===== */
 .topbar {
-    background: #7fa6c9;
+    background: var(--topbar);
+    padding: 20px 40px;
     display: flex;
     justify-content: space-between;
-    padding: 18px 20px; /* lebih tinggi */
     align-items: center;
+    color: white;
+    border-radius: 0 0 20px 20px;
+    margin: 0 20px;
+    box-shadow: 0 4px 15px rgba(130, 165, 198, 0.2);
 }
 
 .user {
     display: flex;
     align-items: center;
+    font-weight: 500;
+    font-size: 15px;
+    background: rgba(255,255,255,0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
 }
 
 .user img {
     width: 30px;
+    height: 30px;
     border-radius: 50%;
     margin-right: 10px;
+    object-fit: cover;
 }
 
-/* Content */
+/* ===== CONTENT ===== */
 .content {
-    padding: 20px;
+    padding: 30px 20px;
 }
 
 h2 {
     text-align: center;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 30px;
 }
 
 /* Chart box */
 .chart-box {
-    margin: 20px auto;
-    width: 80%;
-    background: #c9d9ea;
-    padding: 30px;
-    border-radius: 10px;
+    margin: 0 auto;
+    width: 85%;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.02);
+    transition: transform 0.3s ease;
+}
+
+.chart-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
 }

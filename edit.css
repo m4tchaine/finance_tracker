@@ -1,7 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --btn-primary: #5D81A4;
+    --text-main: #2d3748;
+    --text-muted: #718096;
+}
+
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #b8cde1;
+    font-family: 'Inter', sans-serif;
+    background: #c9d9ea; /* Tetap konsisten dengan warna biru lembut */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 /* Container tengah */
@@ -9,73 +21,99 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    width: 100%;
+    padding: 20px;
 }
 
 /* Card */
 .card {
     background: #ffffff;
-    padding: 30px;
+    padding: 40px;
     width: 400px;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
 }
 
 /* Judul */
 .card h2 {
-    margin-bottom: 20px;
-    color: #333;
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: var(--text-main);
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
 }
 
 /* Label */
 .card label {
     display: block;
-    margin-top: 10px;
-    color: #555;
+    margin-top: 15px;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 8px;
 }
 
 /* Input */
 .card input {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+    padding: 12px 15px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
     outline: none;
-    transition: 0.2s;
+    background: #f8fafc;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--text-main);
+    transition: all 0.3s ease;
 }
 
 .card input:focus {
-    border-color: #4a90e2;
-    box-shadow: 0 0 5px rgba(74,144,226,0.3);
+    border-color: var(--btn-primary);
+    box-shadow: 0 0 0 3px rgba(93, 129, 164, 0.15);
+    background: #ffffff;
 }
 
 /* Button */
 .btn {
-    margin-top: 15px;
+    margin-top: 25px;
     width: 100%;
-    padding: 10px;
-    background: #4a90e2;
+    padding: 14px;
+    background: var(--btn-primary);
     border: none;
     color: white;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
-    background: #357abd;
+    background: #4a6b91;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(93, 129, 164, 0.3);
 }
 
 /* Cancel */
 .cancel {
     display: block;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 15px;
     text-decoration: none;
-    color: #888;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.2s ease;
 }
 
 .cancel:hover {
-    color: #e74c3c;
+    color: #E53E3E;
 }

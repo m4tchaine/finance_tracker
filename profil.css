@@ -1,12 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 :root {
-    /* Warna sesuai screenshot terbaru */
     --bg-sidebar: #c9d9ea;
+    --bg-body: #f8fafc;
+    --topbar: #82A5C6;
+    --card-bg: #ffffff;
+    --btn-primary: #5D81A4;
+    --text-main: #2d3748;
+    --text-muted: #718096;
 }
 
 body {
     margin: 0;
-    font-family: 'Segoe UI';
-    background: #f5f5f5;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-body);
+    color: var(--text-main);
 }
 
 .wrapper {
@@ -19,100 +27,145 @@ body {
     background: var(--bg-sidebar);
     height: 100vh;
     position: fixed;
-    padding: 30px 15px;
+    padding: 40px 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 2px 0 10px rgba(0,0,0,0.03);
+    z-index: 100;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.profile:hover {
+    transform: scale(1.05);
 }
 
 .profile img {
-    width: 70px;
-    height: 70px;
+    width: 75px;
+    height: 75px;
     background: white;
     border-radius: 50%;
-    padding: 5px;
-    margin-bottom: 10px;
+    padding: 4px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    object-fit: cover;
 }
 
 .ubah-profil {
-    font-size: 12px;
-    font-weight: bold;
-    color: #666;
-    margin-bottom: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #4a5568;
+    margin: 0 0 35px 0;
     cursor: pointer;
+    background: rgba(255,255,255,0.5);
+    padding: 4px 12px;
+    border-radius: 12px;
 }
 
 .sidebar ul {
     width: 100%;
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .sidebar li {
-    padding: 12px 20px;
-    margin: 5px 0;
-    border-radius: 10px;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 12px;
     font-weight: 600;
+    font-size: 15px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     cursor: pointer;
-    transition: 0.2s;
+    transition: all 0.3s ease;
+    color: #3a4a5b;
 }
 
 .sidebar li.active {
-    background: #B8CDE1;
+    background: #ffffff;
+    color: var(--btn-primary);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    transform: translateX(5px);
 }
 
 .sidebar li:hover:not(.active) {
-    background: rgba(184, 205, 225, 0.5);
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateX(3px);
 }
 
-
-/* Main */
+/* ===== MAIN ===== */
 .main {
+    margin-left: 270px;
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Topbar */
+/* ===== TOPBAR ===== */
 .topbar {
-    background: #7fa6c9;
+    background: var(--topbar);
+    padding: 20px 40px;
     display: flex;
     justify-content: space-between;
-    padding: 18px 20px; /* lebih tinggi */
     align-items: center;
+    color: white;
+    border-radius: 0 0 20px 20px;
+    margin: 0 20px;
+    box-shadow: 0 4px 15px rgba(130, 165, 198, 0.2);
 }
 
 .user {
     display: flex;
     align-items: center;
+    font-weight: 500;
+    font-size: 15px;
+    background: rgba(255,255,255,0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
 }
 
 .user img {
     width: 30px;
+    height: 30px;
     border-radius: 50%;
     margin-right: 10px;
+    object-fit: cover;
 }
 
-/* Content */
+/* ===== CONTENT ===== */
 .content {
-    padding: 20px;
+    padding: 30px 20px;
     text-align: center;
 }
 
 h2 {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    color: var(--text-main);
 }
 
-/* Card Utama */
+/* ===== CARD UTAMA ===== */
 .card {
     width: 450px;
-    background: #d9e4f1;
+    background: var(--card-bg);
     border-radius: 25px;
-    margin: 100px auto 40px; /* Jarak atas 100px agar foto tidak terpotong layar */
+    margin: 80px auto 40px;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
 /* Container pembungkus luar */
@@ -126,30 +179,31 @@ h2 {
 
 /* Lingkaran Putih/Cekungan */
 .avatar-circle {
-    width: 110px !important;  /* Ukuran harus sama */
-    height: 110px !important; /* Ukuran harus sama */
-    background: #f5f5f5;      /* Warna background body */
-    border-radius: 50% !important; /* Paksa jadi bulat */
+    width: 110px !important;
+    height: 110px !important;
+    background: var(--bg-body);
+    border-radius: 50% !important;
     display: flex !important;
     justify-content: center;
     align-items: center;
-    overflow: hidden;         /* Kunci agar gambar tidak keluar jalur */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Opsional: beri sedikit bayangan */
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
 /* Gambar di dalam */
 .avatar-circle img {
-    width: 100% !important;   /* Mengikuti lebar circle */
-    height: 100% !important;  /* Mengikuti tinggi circle */
+    width: 100% !important;
+    height: 100% !important;
     border-radius: 50% !important;
-    object-fit: cover !important; /* INI KUNCINYA: Memotong gambar jadi kotak simetris */
+    object-fit: cover !important;
     display: block;
+    border: 4px solid white;
 }
 
-/* Atur ulang Card Header agar teks Edit Foto tidak tertutup */
+/* Atur ulang Card Header */
 .card-header {
-    background: #7fa6c9;
-    padding: 60px 20px 20px !important; /* Padding atas harus cukup luas */
+    background: var(--topbar);
+    padding: 60px 20px 25px !important;
     border-radius: 25px 25px 0 0;
     text-align: center;
     color: white;
@@ -159,34 +213,42 @@ h2 {
     margin: 0;
     font-size: 1.2rem;
     font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 /* Form Styling */
 form {
-    padding: 30px;
+    padding: 35px;
 }
 
 .input-box {
-    background: white;
+    background: #f8fafc;
     display: flex;
     align-items: center;
-    padding: 12px 15px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    border: none !important;
+    padding: 12px 18px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #e2e8f0 !important;
+    transition: all 0.3s ease;
+}
+
+.input-box:focus-within {
+    border-color: var(--btn-primary) !important;
+    box-shadow: 0 0 0 3px rgba(93, 129, 164, 0.15);
+    background: white;
 }
 
 .input-box input {
-    border: none !important;      /* MENGHILANGKAN KOTAK KECIL */
-    outline: none !important;     /* Menghilangkan garis biru saat diklik */
-    background: transparent !important; /* Biar menyatu dengan background putih box */
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
     width: 100%;
     padding: 0 10px !important;
-    font-size: 1rem;
-    font-family: inherit;
-    color: #333;
-    
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
 }
+
 .input-field {
     display: flex;
     align-items: center;
@@ -195,9 +257,10 @@ form {
 }
 
 .input-field label {
-    font-size: 0.9rem;
-    color: #666;
-    margin-right: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-right: 15px;
     white-space: nowrap;
 }
 
@@ -210,11 +273,21 @@ form {
 
 .btn-simpan {
     width: 100%;
-    padding: 12px;
-    background: #7fa6c9;
+    padding: 14px;
+    background: var(--btn-primary);
     color: white;
     border: none;
-    border-radius: 10px;
-    font-weight: bold;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    margin-top: 10px;
+}
+
+.btn-simpan:hover {
+    background: #4a6b91;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(93, 129, 164, 0.3);
 }

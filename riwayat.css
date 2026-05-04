@@ -1,28 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 :root {
     --bg-sidebar: #c9d9ea;
+    --bg-body: #f8fafc;
+    --topbar: #82A5C6;
+    --btn-primary: #5D81A4;
+    --text-main: #2d3748;
+    --text-muted: #718096;
 }
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #f4f6f9;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-body);
+    color: var(--text-main);
 }
 
 /* ===== TOPBAR ===== */
 .topbar {
     position: fixed;
     top: 0;
-    left: 220px;
+    left: 240px; /* Lebar sidebar */
     right: 0;
     height: 70px;
-    background: #7fa1c3;
+    background: var(--topbar);
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding: 0 30px;
+    padding: 0 40px;
     color: white;
     font-weight: 500;
     z-index: 1000;
+    box-shadow: 0 4px 15px rgba(130, 165, 198, 0.2);
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+.user img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
 }
 
 /* ===== SIDEBAR ===== */
@@ -31,95 +56,158 @@ body {
     background: var(--bg-sidebar);
     height: 100vh;
     position: fixed;
-    padding: 30px 15px;
+    padding: 40px 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 2px 0 10px rgba(0,0,0,0.03);
+    z-index: 101; /* Di atas topbar */
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.profile:hover {
+    transform: scale(1.05);
 }
 
 .profile img {
-    width: 70px;
-    height: 70px;
+    width: 75px;
+    height: 75px;
     background: white;
     border-radius: 50%;
-    padding: 5px;
-    margin-bottom: 10px;
+    padding: 4px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    object-fit: cover;
 }
 
 .ubah-profil {
-    font-size: 12px;
-    font-weight: bold;
-    color: #666;
-    margin-bottom: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #4a5568;
+    margin: 0 0 35px 0;
     cursor: pointer;
+    background: rgba(255,255,255,0.5);
+    padding: 4px 12px;
+    border-radius: 12px;
 }
 
 .sidebar ul {
     width: 100%;
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .sidebar li {
-    padding: 12px 20px;
-    margin: 5px 0;
-    border-radius: 10px;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 12px;
     font-weight: 600;
+    font-size: 15px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     cursor: pointer;
-    transition: 0.2s;
+    transition: all 0.3s ease;
+    color: #3a4a5b;
 }
 
 .sidebar li.active {
-    background: #B8CDE1;
+    background: #ffffff;
+    color: var(--btn-primary);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    transform: translateX(5px);
 }
 
 .sidebar li:hover:not(.active) {
-    background: rgba(184, 205, 225, 0.5);
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateX(3px);
 }
 
 /* ===== CONTENT ===== */
 .content {
-    margin-left: 220px;
-    padding: 100px 40px 40px 40px; /* kasih space buat topbar */
+    margin-left: 270px; /* 240px + 30px margin */
+    padding: 110px 40px 40px 0; /* padding atas untuk topbar */
 }
 
 /* ===== CARD RIWAYAT ===== */
 .card {
-    background: #d9e3ee;
-    padding: 15px;
-    border-radius: 12px;
-    margin-bottom: 15px;
+    background: #ffffff;
+    padding: 20px 25px;
+    border-radius: 16px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.02);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
 }
 
 .transaksi {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .icon {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background: black;
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    background: var(--btn-primary);
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 4px 10px rgba(93, 129, 164, 0.3);
 }
 
-/* warna kiri */
+.transaksi div {
+    display: flex;
+    flex-direction: column;
+}
+
+.transaksi div strong {
+    font-size: 16px;
+    color: var(--text-main);
+    margin-bottom: 4px;
+}
+
+.transaksi div span {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.nominal {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+/* warna kiri & text nominal */
 .masuk {
-    border-left: 5px solid green;
+    border-left: 6px solid #48BB78;
+}
+
+.masuk .nominal {
+    color: #38A169;
 }
 
 .keluar {
-    border-left: 5px solid red;
+    border-left: 6px solid #F56565;
+}
+
+.keluar .nominal {
+    color: #E53E3E;
 }
