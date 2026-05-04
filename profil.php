@@ -27,7 +27,7 @@ $user = mysqli_stmt_get_result($stmt)->fetch_assoc();
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <div class="profile-side" onclick="window.location.href='profil.php'" style="cursor: pointer;">
+        <div class="profile" onclick="window.location.href='profil.php'" style="cursor: pointer;">
             <img src="profile.jpg">
             <p>Ubah Profil</p>
         </div>
